@@ -46,22 +46,17 @@ article {
 }
 h3 {
   margin-block: 0 0.5em;
-  font-size: var(--font--larger);
 }
 h4 {
-  font-size: var(--font--large);
   margin-block: 1em 0.5em;
 }
 p {
   font-weight: 500;
   margin: 0;
-  line-height: 1.3;
 }
 ul {
   padding-inline-start: 1em;
   margin-block: 0.5em;
-  line-height: 1.3;
-  font-size: var(--font--large);
 }
 footer {
   margin-block-start: 1em;

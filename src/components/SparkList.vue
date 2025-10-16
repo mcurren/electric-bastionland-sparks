@@ -48,7 +48,7 @@ const boroughSparkCount = ref(startingMin)
 <style scoped>
 header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   font-size: var(--font--larger);
   gap: 1em;
   margin-block-end: 1em;
@@ -57,8 +57,11 @@ h3 {
   margin-block: 0;
   font-size: inherit;
 }
+label {
+  font-size: var(--font--medium);
+}
 input {
-  font-size: inherit;
+  font-size: var(--font--medium);
 }
 section {
   display: grid;

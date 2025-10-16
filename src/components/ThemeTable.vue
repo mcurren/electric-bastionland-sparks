@@ -51,12 +51,10 @@ article {
 }
 h3 {
   margin-block-start: 0;
-  font-size: var(--font--larger);
 }
 p {
   font-weight: 500;
   margin: 0;
-  line-height: 1.3;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25em;

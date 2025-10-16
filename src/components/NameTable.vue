@@ -45,7 +45,7 @@ onMounted(() => {
 <style scoped>
 article {
   background: #f3f3f3;
-  padding: 1rem 0;
+  padding: clamp(0.5rem, 2vw, 1rem);
   text-align: center;
   display: flex;
   gap: 1rem;

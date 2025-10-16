@@ -66,7 +66,7 @@ onMounted(() => {
 <style scoped>
 article {
   background: #f3f3f3;
-  padding: 1rem 0;
+  padding: clamp(0.5rem, 2vw, 1rem);
   text-align: center;
 }
 h3,
@@ -82,10 +82,11 @@ dl {
   margin: 0;
 }
 dt {
+  font-size: var(--font--small);
   margin-block-end: 0.5em;
 }
 dd {
-  font-size: var(--font--large);
+  font-size: var(--font--medium);
   font-weight: 500;
   margin: 0;
   line-height: 1.3;
