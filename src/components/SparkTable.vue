@@ -85,7 +85,7 @@ dt {
   margin-block-end: 0.5em;
 }
 dd {
-  font-size: large;
+  font-size: var(--font--large);
   font-weight: 500;
   margin: 0;
   line-height: 1.3;
