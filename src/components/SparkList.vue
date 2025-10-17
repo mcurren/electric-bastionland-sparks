@@ -17,12 +17,11 @@ const props = defineProps({
   },
   startingCount: {
     type: Number,
-    default: 6,
+    default: 8,
   },
 })
 const startingMin = props.startingCount ?? 1
 const boroughSparkCount = ref(startingMin)
-const randomKey = () => Math.floor(Math.random() * 200)
 </script>
 
 <template>

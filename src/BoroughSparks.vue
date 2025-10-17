@@ -21,13 +21,11 @@ import { parlourGamesSparks } from '@/data/sparksBoroughParlourGames'
           columnTwoName="Modifier"
           :tableOne="cocktailSparks[0]"
           :tableTwo="cocktailSparks[1]"
-          :auto-populate="false"
         />
         <SparkTable
           label="Parlour Games"
           :tableOne="parlourGamesSparks[0]"
           :tableTwo="parlourGamesSparks[1]"
-          :auto-populate="false"
         />
       </div>
       <div class="spark-panel__grid__col">

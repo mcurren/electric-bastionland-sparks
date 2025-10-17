@@ -21,7 +21,6 @@ import { tunnelAestheticSparks } from '@/data/sparksUndergroundTunnelAesthetic'
           columnTwoName="Look"
           :tableOne="tunnelAestheticSparks[0]"
           :tableTwo="tunnelAestheticSparks[1]"
-          :auto-populate="false"
         />
         <SparkTable
           label="Hazards in the Dark"
@@ -29,7 +28,6 @@ import { tunnelAestheticSparks } from '@/data/sparksUndergroundTunnelAesthetic'
           columnTwoName="Danger"
           :tableOne="undergroundHazardSparks[0]"
           :tableTwo="undergroundHazardSparks[1]"
-          :auto-populate="false"
         />
       </div>
       <div class="spark-panel__grid__col">
