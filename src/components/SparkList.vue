@@ -22,6 +22,7 @@ const props = defineProps({
 })
 const startingMin = props.startingCount ?? 1
 const boroughSparkCount = ref(startingMin)
+const randomKey = () => Math.floor(Math.random() * 200)
 </script>
 
 <template>
@@ -29,8 +30,16 @@ const boroughSparkCount = ref(startingMin)
     <header>
       <h3>{{ label }}</h3>
       <div>
-        <label for="spark-count">Count: </label>
-        <input id="spark-count" type="number" min="1" max="30" v-model.number="boroughSparkCount" />
+        <label
+          >Count:
+          <input
+            name="spark-count"
+            type="number"
+            min="1"
+            max="30"
+            v-model.number="boroughSparkCount"
+          />
+        </label>
       </div>
     </header>
     <section>
@@ -61,7 +70,9 @@ label {
   font-size: var(--font--medium);
 }
 input {
+  font-family: inherit;
   font-size: var(--font--medium);
+  width: 3rem;
 }
 section {
   display: grid;

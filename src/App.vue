@@ -77,7 +77,7 @@ footer p {
   --font--medium: min(max(1.125rem, 3vw), 20px);
   --font--small: min(max(1rem, 2.5vw), 18px);
   --font--xsmall: min(max(0.875rem, 2vw), 16px);
-  --color--black: rgb(37 37 37);
+  --color--black: #252525;
   --color--almost-white: rgb(249 249 249);
 }
 html {
@@ -102,7 +102,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(40rem, 100%), 1fr));
   gap: clamp(1rem, 4vw, 2rem);
-  /* max-width: calc(90rem + 2rem); */
+  max-width: 125rem;
   margin-inline: auto;
 }
 button {
