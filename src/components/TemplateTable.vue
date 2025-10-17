@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, computed, onMounted } from 'vue'
+import { reactive, onMounted } from 'vue'
 import { rollTable } from '../helpers/utils.js'
 const props = defineProps({
   templates: {

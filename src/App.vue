@@ -1,19 +1,64 @@
 <script setup>
 import BoroughSparks from '@/BoroughSparks.vue'
+import UndergroundSparks from '@/UndergroundSparks.vue'
 import BastiardSparks from '@/BastiardSparks.vue'
 </script>
 
 <template>
-  <h1>Electric Bastionland Sparks</h1>
+  <header>
+    <h1>Electric Bastionland Sparks</h1>
+  </header>
   <main>
     <BoroughSparks />
+    <UndergroundSparks />
     <BastiardSparks />
   </main>
+  <footer>
+    <p>
+      For
+      <a
+        href="https://bastionlandpress.com/products/electric-bastionland-hardback-book"
+        target="_blank"
+        title="Buy Electric Bastionland"
+        rel="noopener noreferrer"
+        >Electric Bastionland</a
+      >
+      RPG by
+      <a
+        href="https://www.bastionland.com/"
+        target="_blank"
+        title="Bastionland Blog"
+        rel="noopener noreferrer"
+        >Chris McDowall</a
+      >.
+    </p>
+    <p>
+      App built by
+      <a
+        href="https://curren.me/labs"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="&Curren Labs"
+        >michaelopolis</a
+      >.
+    </p>
+  </footer>
 </template>
 
 <style scoped>
 h1 {
   text-align: center;
+}
+footer {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: clamp(1rem, 4vw, 2.5rem);
+}
+footer p {
+  margin: 0;
 }
 </style>
 
@@ -32,10 +77,12 @@ h1 {
   --font--medium: min(max(1.125rem, 3vw), 20px);
   --font--small: min(max(1rem, 2.5vw), 18px);
   --font--xsmall: min(max(0.875rem, 2vw), 16px);
+  --color--black: rgb(37 37 37);
+  --color--almost-white: rgb(249 249 249);
 }
 html {
   font-size: 16px;
-  background: black;
+  background: var(--color--black);
   box-sizing: border-box;
   padding: 1rem;
   & * {
@@ -44,7 +91,7 @@ html {
 }
 body {
   font-family: var(--system-ui);
-  color: #222;
+  color: var(--color--black);
   margin: 0;
   padding: clamp(1rem, 4vw, 2.5rem);
   background: white;
@@ -61,7 +108,7 @@ main {
 button {
   background: none transparent;
   border: 0;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--color--black);
   padding: 0.3625em 0.25em;
   cursor: pointer;
   font-size: var(--font--small);
@@ -71,7 +118,7 @@ button {
   transition: all 0.3s;
   &:hover,
   &.active {
-    background: black;
+    background: var(--color--black);
     color: white;
   }
 }
@@ -83,7 +130,7 @@ dt {
   font-variant: small-caps;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: black;
+  color: var(--color--black);
 }
 h1 {
   font-size: var(--font--xxlarge);
@@ -103,19 +150,26 @@ li {
   font-size: var(--font--medium);
   line-height: 1.3;
 }
+a {
+  color: var(--color--black);
+  transition: color 0.3s;
+  &:hover {
+    color: rgb(209 55 44);
+  }
+}
 .spark-panel {
-  border: 3px solid black;
+  border: 3px solid var(--color--black);
   border-radius: 2rem;
+  background: var(--color--black);
   overflow: hidden;
-  background: #f9f9f9;
   /* max-width: 45rem; */
   container-type: inline-size;
 }
 .spark-panel__title {
   padding: clamp(0.5rem, 2vw, 1.5rem);
-  background: black;
+  background: var(--color--black);
   color: white;
-  margin-block: 0 clamp(1rem, 3vw, 1.5rem);
+  margin-block: 0;
   text-align: center;
   letter-spacing: 0.065em;
   font-weight: 400;
@@ -124,13 +178,14 @@ li {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(1rem, 3vw, 1.5rem);
-  margin: clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
   border-bottom-left-radius: 1.25rem;
   border-bottom-right-radius: 1.25rem;
   overflow: hidden;
-}
-@container (width > 600px) {
-  .spark-panel__grid {
+  background: var(--color--almost-white);
+  height: 100%;
+
+  @container (width > 600px) {
     grid-template-columns: 1fr 1fr;
   }
 }

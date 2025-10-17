@@ -1,5 +1,5 @@
 // Roll a d20 on the Warning and Danger tables below.
-export const tunnelAestheticSparks = [
+export const undergroundHazardSparks = [
   // Warning (d20)
   [
     'Murmuring',

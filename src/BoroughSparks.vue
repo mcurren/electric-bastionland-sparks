@@ -1,6 +1,6 @@
 <script setup>
-import SparkTable from '@/components/SparkTable.vue'
 import ThemeTable from '@/components/ThemeTable.vue'
+import SparkTable from '@/components/SparkTable.vue'
 import SparkList from '@/components/SparkList.vue'
 
 import { boroughThemes } from '@/data/themesBorough'
@@ -15,13 +15,15 @@ import { parlourGamesSparks } from '@/data/sparksBoroughParlourGames'
     <div class="spark-panel__grid">
       <div class="spark-panel__grid__col">
         <ThemeTable label="Theme" :themes="boroughThemes" />
-        <sparkTable
+        <SparkTable
           label="Cocktails"
+          columnOneName="Spirit"
+          columnTwoName="Modifier"
           :tableOne="cocktailSparks[0]"
           :tableTwo="cocktailSparks[1]"
           :auto-populate="false"
         />
-        <sparkTable
+        <SparkTable
           label="Parlour Games"
           :tableOne="parlourGamesSparks[0]"
           :tableTwo="parlourGamesSparks[1]"

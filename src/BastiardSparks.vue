@@ -124,6 +124,8 @@ nav {
   flex-wrap: wrap;
   gap: 1rem 2rem;
   justify-content: center;
+  background: var(--color--almost-white);
+  padding-block-start: clamp(1rem, 3vw, 1.5rem);
 }
 h2 span {
   text-transform: capitalize;
