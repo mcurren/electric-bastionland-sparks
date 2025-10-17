@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import SparkTable from '@/components/sparkTable.vue'
+import SparkTable from '@/components/SparkTable.vue'
 import TemplateTable from '@/components/TemplateTable.vue'
 import NameTable from '@/components/NameTable.vue'
 

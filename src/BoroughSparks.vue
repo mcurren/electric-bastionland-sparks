@@ -1,5 +1,5 @@
 <script setup>
-import SparkTable from '@/components/sparkTable.vue'
+import SparkTable from '@/components/SparkTable.vue'
 import ThemeTable from '@/components/ThemeTable.vue'
 import SparkList from '@/components/SparkList.vue'
 
