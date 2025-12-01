@@ -52,7 +52,7 @@ export const bastiardMachinesSparks = [
 export const bastiardMachinesTemplates = [
   {
     title: 'Mobile Machine',
-    description: '7HP,ARMOUR 3, shock prod (d4).',
+    description: '7HP, Armour 3, shock prod (d4).',
     details: [
       'Clumsily follow you around.',
       'Try to make a deal by creating tiny, useful things.',
