@@ -11,7 +11,10 @@ const props = defineProps({
     default: true,
   },
 })
+
+const roles = ['Patron', 'Specialist', 'Mercenary']
 const template = reactive({
+  role: false,
   title: false,
   description: false,
   details: [],
@@ -21,6 +24,7 @@ function rollTemplate() {
   template.title = newTemplate.title
   template.description = newTemplate.description
   template.details = newTemplate.details
+  template.role = rollTable(roles)
 }
 onMounted(() => {
   rollTemplate()
@@ -29,6 +33,15 @@ onMounted(() => {
 <template>
   <article class="template-table">
     <section v-if="template.title && template.description && template.details.length">
+      <p class="eyebrow">
+        <span
+          v-for="item in roles"
+          :class="{ selected: item === template.role }"
+          v-bind:key="item"
+          @click="template.role = item"
+          >{{ item }}</span
+        >
+      </p>
       <h3 class="template-table__title">{{ template.title }}</h3>
       <p class="template-table__description">{{ template.description }}</p>
       <ul class="template-table__details">
@@ -53,6 +66,18 @@ h4 {
 p {
   font-weight: 500;
   margin: 0;
+}
+p.eyebrow {
+  font-size: 1em;
+  margin-block-end: 0.5em;
+  display: flex;
+  gap: 0.5em;
+}
+p.eyebrow span {
+  cursor: pointer;
+}
+p.eyebrow span:not(.selected) {
+  opacity: 0.6;
 }
 ul {
   padding-inline-start: 1em;
