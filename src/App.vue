@@ -1,7 +1,6 @@
 <script setup>
-import BoroughSparks from '@/BoroughSparks.vue'
-import UndergroundSparks from '@/UndergroundSparks.vue'
-import BastiardSparks from '@/BastiardSparks.vue'
+import LocaleSparks from '@/views/LocaleSparks.vue'
+import BastiardSparks from '@/views/BastiardSparks.vue'
 </script>
 
 <template>
@@ -9,8 +8,7 @@ import BastiardSparks from '@/BastiardSparks.vue'
     <h1>Electric Bastionland Sparks</h1>
   </header>
   <main>
-    <BoroughSparks />
-    <UndergroundSparks />
+    <LocaleSparks />
     <BastiardSparks />
   </main>
   <footer>
@@ -85,6 +83,10 @@ html {
   background: var(--color--black);
   box-sizing: border-box;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
   & * {
     box-sizing: inherit;
   }
@@ -96,13 +98,14 @@ body {
   padding: clamp(1rem, 4vw, 2.5rem);
   background: white;
   border-radius: 5vw;
-  min-height: calc(100vh - 4vw);
+  min-height: calc(100vh - 2rem);
+  width: 100%;
 }
 main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(40rem, 100%), 1fr));
   gap: clamp(1rem, 4vw, 2rem);
-  max-width: 125rem;
+  max-width: 100rem;
   margin-inline: auto;
 }
 button {

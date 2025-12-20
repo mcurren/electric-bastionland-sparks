@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { rollTable } from '../helpers/utils.js'
 const props = defineProps({
   templates: {
@@ -13,18 +13,21 @@ const props = defineProps({
 })
 
 const roles = ['Patron', 'Specialist', 'Mercenary']
-const template = reactive({
-  role: false,
-  title: false,
-  description: false,
-  details: [],
-})
+let selectedRole = ref(false)
+
+let selectedTemplate = ref(false)
+
 function rollTemplate() {
   const newTemplate = rollTable(props.templates)
-  template.title = newTemplate.title
-  template.description = newTemplate.description
-  template.details = newTemplate.details
-  template.role = rollTable(roles)
+  selectedTemplate.value = newTemplate
+  selectedRole.value = rollTable(roles)
+}
+function assignTemplate(newTemplate) {
+  // console.log(newTemplate)
+  selectedTemplate.value = newTemplate
+}
+function setRole(newRole) {
+  selectedRole.value = newRole
 }
 onMounted(() => {
   rollTemplate()
@@ -32,25 +35,40 @@ onMounted(() => {
 </script>
 <template>
   <article class="template-table">
-    <section v-if="template.title && template.description && template.details.length">
+    <section
+      v-if="
+        selectedTemplate.title && selectedTemplate.description && selectedTemplate.details.length
+      "
+    >
       <p class="eyebrow">
         <span
           v-for="item in roles"
-          :class="{ selected: item === template.role }"
+          :class="{ selected: item === selectedRole }"
           v-bind:key="item"
-          @click="template.role = item"
+          @click="setRole(item)"
           >{{ item }}</span
         >
       </p>
-      <h3 class="template-table__title">{{ template.title }}</h3>
-      <p class="template-table__description">{{ template.description }}</p>
+      <select
+        name="selectTemplate"
+        id="selectTemplate"
+        tabindex="0"
+        @change="assignTemplate(templates[$event.target.selectedIndex])"
+      >
+        <option
+          value=""
+          v-for="item in templates"
+          :key="item.title"
+          :selected="selectedTemplate.title === item.title"
+        >
+          {{ item.title }}
+        </option>
+      </select>
+      <p class="template-table__description">{{ selectedTemplate.description }}</p>
       <ul class="template-table__details">
-        <li v-for="item in template.details" :key="item.id">{{ item }}</li>
+        <li v-for="item in selectedTemplate.details" :key="item.id">{{ item }}</li>
       </ul>
     </section>
-    <footer v-if="hasButton">
-      <button @click="rollTemplate">Roll a new Template</button>
-    </footer>
   </article>
 </template>
 <style scoped>
@@ -75,6 +93,7 @@ p.eyebrow {
 }
 p.eyebrow span {
   cursor: pointer;
+  display: block;
 }
 p.eyebrow span:not(.selected) {
   opacity: 0.6;
@@ -82,6 +101,27 @@ p.eyebrow span:not(.selected) {
 ul {
   padding-inline-start: 1em;
   margin-block: 0.5em;
+}
+select {
+  font-family: inherit;
+  display: block;
+  appearance: none;
+  font-size: var(--font--larger);
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color--black);
+  margin-block: 0 0.5em;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--color--black);
+  padding-inline-end: 1.5em;
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 4px;
+}
+select:focus {
+  outline: none;
 }
 footer {
   margin-block-start: 1em;
